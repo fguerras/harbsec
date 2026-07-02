@@ -7,7 +7,6 @@ const geist = Geist({
 });
 
 export const metadata = {
-  // TODO: reemplazar por el dominio real cuando esté definido
   metadataBase: new URL("https://harbsec.com"),
   title: "HarbSec — Protegemos tu mundo digital",
   description:
