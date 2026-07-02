@@ -137,10 +137,12 @@ function Hero() {
 const SERVICOS = [
   {
     title: "Auditorias",
+    href: "/pt/servicos/auditorias",
     desc: "Infraestrutura, Active Directory, redes e revisão de configurações para identificar vulnerabilidades antes que alguém as explore.",
   },
   {
     title: "Gestão de vulnerabilidades",
+    href: "/pt/servicos/gestao-de-vulnerabilidades",
     desc: "Varredura, priorização de riscos e planos de remediação concretos.",
   },
   {
@@ -153,10 +155,12 @@ const SERVICOS = [
   },
   {
     title: "Monitoramento",
+    href: "/pt/servicos/monitoramento",
     desc: "Monitoramento de infraestrutura e eventos de segurança com alertas e detecção precoce de ameaças.",
   },
   {
     title: "Resposta a incidentes",
+    href: "/pt/servicos/resposta-a-incidentes",
     desc: "Investigação, contenção, recuperação e relatório técnico quando algo dá errado.",
   },
   {
@@ -197,18 +201,25 @@ function Servicos() {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICOS.map((s) => (
-            <div
-              key={s.title}
-              className="border border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-sm transition-all group"
-            >
-              <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                <ShieldIcon />
-              </div>
-              <h3 className="font-semibold text-black mb-2">{s.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+          {SERVICOS.map((s) => {
+            const Card = s.href ? "a" : "div";
+            return (
+              <Card
+                key={s.title}
+                href={s.href}
+                className="border border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-sm transition-all group block"
+              >
+                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                  <ShieldIcon />
+                </div>
+                <h3 className="font-semibold text-black mb-2">{s.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                {s.href && (
+                  <span className="inline-block mt-3 text-blue-600 text-sm font-medium">Saiba mais →</span>
+                )}
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
