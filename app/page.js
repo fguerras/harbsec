@@ -258,18 +258,46 @@ function Nosotros() {
 }
 
 // ─── Contacto ─────────────────────────────────────────────────────────────────
+const WEB3FORMS_KEY = "541dafc9-d29f-49fa-8eea-f55b7c6d9321"; // reemplazar con la clave de web3forms.com
+
 function Contacto() {
   const [form, setForm] = useState({ nombre: "", empresa: "", email: "", mensaje: "" });
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // TODO: conectar con backend o servicio de email (ej. Resend, EmailJS, Formspree)
-    setSent(true);
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Nuevo contacto desde HarbSec — ${form.nombre}`,
+          from_name: form.nombre,
+          empresa: form.empresa,
+          email: form.email,
+          message: form.mensaje,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -350,11 +378,17 @@ function Contacto() {
                 placeholder="Contanos brevemente qué necesitás..."
               />
             </div>
+            {error && (
+              <p className="text-red-400 text-sm text-center">
+                Hubo un error al enviar. Intentá de nuevo.
+              </p>
+            )}
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition-colors mt-2"
+              disabled={loading}
+              className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-semibold py-3 rounded-lg transition-colors mt-2"
             >
-              Enviar mensaje
+              {loading ? "Enviando..." : "Enviar mensaje"}
             </button>
           </form>
         )}
