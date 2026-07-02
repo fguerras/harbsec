@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
@@ -447,6 +447,13 @@ function Footer() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Home() {
+  useEffect(() => {
+    document.documentElement.lang = "pt-BR";
+    return () => {
+      document.documentElement.lang = "es";
+    };
+  }, []);
+
   return (
     <>
       <Navbar />

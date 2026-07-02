@@ -7,9 +7,18 @@ const geist = Geist({
 });
 
 export const metadata = {
+  // TODO: reemplazar por el dominio real cuando esté definido
+  metadataBase: new URL("https://harbsec.com"),
   title: "HarbSec — Protegemos tu mundo digital",
   description:
     "Servicios profesionales de ciberseguridad para pequeñas y medianas empresas. Auditorías, hardening, monitoreo, respuesta a incidentes y más.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      es: "/",
+      "pt-BR": "/pt",
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
