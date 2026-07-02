@@ -261,7 +261,7 @@ function Nosotros() {
 const WEB3FORMS_KEY = "541dafc9-d29f-49fa-8eea-f55b7c6d9321"; // reemplazar con la clave de web3forms.com
 
 function Contacto() {
-  const [form, setForm] = useState({ nombre: "", empresa: "", email: "", mensaje: "" });
+  const [form, setForm] = useState({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -284,6 +284,7 @@ function Contacto() {
           from_name: form.nombre,
           empresa: form.empresa,
           email: form.email,
+          telefono: form.telefono,
           message: form.mensaje,
         }),
       });
@@ -348,20 +349,36 @@ function Contacto() {
                 />
               </div>
             </div>
-            <div>
-              <label className="block text-gray-400 text-sm mb-1" htmlFor="email">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
-                placeholder="tu@empresa.com"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-gray-400 text-sm mb-1" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
+                  placeholder="tu@empresa.com"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-400 text-sm mb-1" htmlFor="telefono">
+                  Teléfono
+                </label>
+                <input
+                  id="telefono"
+                  name="telefono"
+                  type="tel"
+                  value={form.telefono}
+                  onChange={handleChange}
+                  className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
+                  placeholder="+54 11 1234-5678"
+                />
+              </div>
             </div>
             <div>
               <label className="block text-gray-400 text-sm mb-1" htmlFor="mensaje">
