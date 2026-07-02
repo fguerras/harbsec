@@ -10,12 +10,6 @@ export const metadata = {
   title: "HarbSec — Protegemos tu mundo digital",
   description:
     "Servicios profesionales de ciberseguridad para pequeñas y medianas empresas. Auditorías, hardening, monitoreo, respuesta a incidentes y más.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png" },
-    ],
-  },
 };
 
 export default function RootLayout({ children }) {
