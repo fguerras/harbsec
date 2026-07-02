@@ -12,7 +12,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-24">
         <a href="#inicio" className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/logo_es.png"
             alt="HarbSec"
             width={200}
             height={80}
