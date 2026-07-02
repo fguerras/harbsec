@@ -166,6 +166,10 @@ const SERVICIOS = [
     title: "Consultoría",
     desc: "Diseño de arquitecturas seguras, políticas de seguridad, continuidad del negocio y planes de recuperación.",
   },
+  {
+    title: "Forense digital",
+    desc: "Análisis forense de equipos y sistemas, recolección y preservación de evidencia digital, soporte técnico a investigaciones criminales y organismos de seguridad pública.",
+  },
 ];
 
 function ShieldIcon() {
