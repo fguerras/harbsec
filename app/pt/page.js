@@ -5,7 +5,8 @@ import Image from "next/image";
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 function Navbar() {
   const [open, setOpen] = useState(false);
-  const links = ["Servicios", "Nosotros", "Contacto"];
+  const links = ["Serviços", "Sobre nós", "Contato"];
+  const hrefs = ["servicos", "sobrenos", "contato"];
 
   return (
     <header className="fixed top-0 w-full bg-white z-50 border-b border-gray-200 shadow-sm">
@@ -22,27 +23,27 @@ function Navbar() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
+          {links.map((l, i) => (
             <a
               key={l}
-              href={`#${l.toLowerCase()}`}
+              href={`#${hrefs[i]}`}
               className="text-gray-700 hover:text-blue-600 text-sm font-medium transition-colors"
             >
               {l}
             </a>
           ))}
           <a
-            href="#contacto"
+            href="#contato"
             className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded transition-colors"
           >
-            Contactar
+            Falar conosco
           </a>
         </nav>
 
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-gray-700 hover:text-black"
-          aria-label="Menú"
+          aria-label="Menu"
         >
           {open ? (
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,10 +59,10 @@ function Navbar() {
 
       {open && (
         <div className="md:hidden bg-white border-t border-gray-200 px-6 py-4 flex flex-col gap-4">
-          {links.map((l) => (
+          {links.map((l, i) => (
             <a
               key={l}
-              href={`#${l.toLowerCase()}`}
+              href={`#${hrefs[i]}`}
               onClick={() => setOpen(false)}
               className="text-gray-700 hover:text-blue-600 text-sm font-medium transition-colors"
             >
@@ -69,11 +70,11 @@ function Navbar() {
             </a>
           ))}
           <a
-            href="#contacto"
+            href="#contato"
             onClick={() => setOpen(false)}
             className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded text-center"
           >
-            Contactar
+            Falar conosco
           </a>
         </div>
       )}
@@ -89,67 +90,67 @@ function Hero() {
       className="bg-black pt-44 pb-24 px-6 flex flex-col items-center text-center"
     >
       <span className="inline-block bg-blue-600/10 text-blue-400 text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full mb-6 border border-blue-600/20">
-        Ciberseguridad para PyMEs
+        Cibersegurança para PMEs
       </span>
       <h1 className="text-4xl md:text-6xl font-bold text-white max-w-3xl leading-tight">
-        Protegemos tu{" "}
+        Protegemos o seu{" "}
         <span className="text-blue-500">mundo digital</span>
       </h1>
       <p className="mt-6 text-gray-400 text-lg max-w-xl">
-        Servicios profesionales de ciberseguridad adaptados a pequeñas y medianas empresas.
-        Sin departamento interno, sin problemas.
+        Serviços profissionais de cibersegurança adaptados a pequenas e médias empresas.
+        Sem equipe interna, sem problemas.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row gap-4">
         <a
-          href="#contacto"
+          href="#contato"
           className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3 rounded transition-colors"
         >
           Solicitar consulta gratuita
         </a>
         <a
-          href="#servicios"
+          href="#servicos"
           className="border border-gray-700 hover:border-blue-500 text-gray-300 hover:text-blue-400 font-semibold px-8 py-3 rounded transition-colors"
         >
-          Ver servicios
+          Ver serviços
         </a>
       </div>
     </section>
   );
 }
 
-// ─── Servicios ────────────────────────────────────────────────────────────────
-const SERVICIOS = [
+// ─── Serviços ─────────────────────────────────────────────────────────────────
+const SERVICOS = [
   {
-    title: "Auditorías",
-    desc: "Infraestructura, Active Directory, redes y revisión de configuraciones para identificar vulnerabilidades antes de que alguien las explote.",
+    title: "Auditorias",
+    desc: "Infraestrutura, Active Directory, redes e revisão de configurações para identificar vulnerabilidades antes que alguém as explore.",
   },
   {
-    title: "Gestión de vulnerabilidades",
-    desc: "Escaneo, priorización de riesgos y planes de remediación concretos.",
+    title: "Gestão de vulnerabilidades",
+    desc: "Varredura, priorização de riscos e planos de remediação concretos.",
   },
   {
     title: "Hardening",
-    desc: "Windows Server, Linux, Active Directory, firewalls, servidores web y bases de datos configurados para reducir la superficie de ataque.",
+    desc: "Windows Server, Linux, Active Directory, firewalls, servidores web e bancos de dados configurados para reduzir a superfície de ataque.",
   },
   {
-    title: "Protección empresarial",
-    desc: "Gestión de antivirus/EDR, firewall, VPN, segmentación de red y MFA para proteger el día a día de tu organización.",
+    title: "Proteção empresarial",
+    desc: "Gestão de antivírus/EDR, firewall, VPN, segmentação de rede e MFA para proteger o dia a dia da sua organização.",
   },
   {
-    title: "Monitoreo",
-    desc: "Monitoreo de infraestructura y eventos de seguridad con alertas y detección temprana de amenazas.",
+    title: "Monitoramento",
+    desc: "Monitoramento de infraestrutura e eventos de segurança com alertas e detecção precoce de ameaças.",
   },
   {
-    title: "Respuesta a incidentes",
-    desc: "Investigación, contención, recuperación e informe técnico cuando algo sale mal.",
+    title: "Resposta a incidentes",
+    desc: "Investigação, contenção, recuperação e relatório técnico quando algo dá errado.",
   },
   {
-    title: "Capacitación",
-    desc: "Concientización para usuarios, buenas prácticas y simulaciones de phishing para reducir el riesgo humano.",
+    title: "Treinamento",
+    desc: "Conscientização para usuários, boas práticas e simulações de phishing para reduzir o risco humano.",
   },
   {
-    title: "Consultoría",
-    desc: "Diseño de arquitecturas seguras, políticas de seguridad, continuidad del negocio y planes de recuperación.",
+    title: "Consultoria",
+    desc: "Design de arquiteturas seguras, políticas de segurança, continuidade de negócios e planos de recuperação.",
   },
 ];
 
@@ -166,18 +167,18 @@ function ShieldIcon() {
   );
 }
 
-function Servicios() {
+function Servicos() {
   return (
-    <section id="servicios" className="bg-white py-24 px-6">
+    <section id="servicos" className="bg-white py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-black">Servicios</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black">Serviços</h2>
           <p className="mt-4 text-gray-500 max-w-xl mx-auto">
-            Cobertura completa de ciberseguridad para empresas que no tienen un equipo interno dedicado.
+            Cobertura completa de cibersegurança para empresas que não têm equipe interna dedicada.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICIOS.map((s) => (
+          {SERVICOS.map((s) => (
             <div
               key={s.title}
               className="border border-gray-200 rounded-xl p-6 hover:border-blue-500 hover:shadow-sm transition-all group"
@@ -195,38 +196,38 @@ function Servicios() {
   );
 }
 
-// ─── Sobre nosotros ───────────────────────────────────────────────────────────
+// ─── Sobre nós ────────────────────────────────────────────────────────────────
 const FORTALEZAS = [
-  "Infraestructura Windows y Linux",
+  "Infraestrutura Windows e Linux",
   "Active Directory",
-  "Redes empresariales y VPN",
-  "Servidores web y bases de datos",
-  "Desarrollo de software",
-  "Resolución de incidentes complejos",
+  "Redes empresariais e VPN",
+  "Servidores web e bancos de dados",
+  "Desenvolvimento de software",
+  "Resolução de incidentes complexos",
 ];
 
-function Nosotros() {
+function SobreNos() {
   return (
-    <section id="nosotros" className="bg-gray-50 py-24 px-6">
+    <section id="sobrenos" className="bg-gray-50 py-24 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-            ¿Quiénes somos?
+            Quem somos?
           </h2>
           <p className="text-gray-600 mb-4 leading-relaxed">
-            HarbSec es una empresa de ciberseguridad enfocada en proteger a pequeñas y medianas
-            empresas que no cuentan con un equipo interno dedicado a la seguridad informática.
+            A HarbSec é uma empresa de cibersegurança focada em proteger pequenas e médias
+            empresas que não contam com uma equipe interna dedicada à segurança da informação.
           </p>
           <p className="text-gray-600 mb-8 leading-relaxed">
-            Combinamos experiencia real en infraestructura, conocimiento de desarrollo de software
-            y ciberseguridad aplicada para ofrecer soluciones prácticas, accesibles y de alto
-            nivel técnico — adaptadas a la realidad de cada organización.
+            Combinamos experiência real em infraestrutura, conhecimento em desenvolvimento de
+            software e cibersegurança aplicada para oferecer soluções práticas, acessíveis e de
+            alto nível técnico — adaptadas à realidade de cada organização.
           </p>
           <a
-            href="#contacto"
+            href="#contato"
             className="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded transition-colors"
           >
-            Hablar con nosotros
+            Falar conosco
           </a>
         </div>
         <div>
@@ -257,11 +258,11 @@ function Nosotros() {
   );
 }
 
-// ─── Contacto ─────────────────────────────────────────────────────────────────
-const WEB3FORMS_KEY = "541dafc9-d29f-49fa-8eea-f55b7c6d9321"; // reemplazar con la clave de web3forms.com
+// ─── Contato ──────────────────────────────────────────────────────────────────
+const WEB3FORMS_KEY = "541dafc9-d29f-49fa-8eea-f55b7c6d9321";
 
-function Contacto() {
-  const [form, setForm] = useState({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
+function Contato() {
+  const [form, setForm] = useState({ nome: "", empresa: "", email: "", telefone: "", mensagem: "" });
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -280,12 +281,12 @@ function Contacto() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `Nuevo contacto desde HarbSec — ${form.nombre}`,
-          from_name: form.nombre,
+          subject: `Novo contato via HarbSec — ${form.nome}`,
+          from_name: form.nome,
           empresa: form.empresa,
           email: form.email,
-          telefono: form.telefono,
-          message: form.mensaje,
+          telefone: form.telefone,
+          message: form.mensagem,
         }),
       });
       const data = await res.json();
@@ -302,36 +303,36 @@ function Contacto() {
   }
 
   return (
-    <section id="contacto" className="bg-black py-24 px-6">
+    <section id="contato" className="bg-black py-24 px-6">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Contacto</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Contato</h2>
           <p className="mt-4 text-gray-400">
-            Contanos sobre tu empresa y te respondemos a la brevedad.
+            Conte-nos sobre sua empresa e retornaremos em breve.
           </p>
         </div>
 
         {sent ? (
           <div className="bg-blue-600/10 border border-blue-600/30 rounded-xl p-8 text-center">
-            <p className="text-blue-400 font-semibold text-lg">Mensaje recibido.</p>
-            <p className="text-gray-400 mt-2">Te contactamos pronto.</p>
+            <p className="text-blue-400 font-semibold text-lg">Mensagem recebida.</p>
+            <p className="text-gray-400 mt-2">Entraremos em contato em breve.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-400 text-sm mb-1" htmlFor="nombre">
-                  Nombre
+                <label className="block text-gray-400 text-sm mb-1" htmlFor="nome">
+                  Nome
                 </label>
                 <input
-                  id="nombre"
-                  name="nombre"
+                  id="nome"
+                  name="nome"
                   type="text"
                   required
-                  value={form.nombre}
+                  value={form.nome}
                   onChange={handleChange}
                   className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="Tu nombre"
+                  placeholder="Seu nome"
                 />
               </div>
               <div>
@@ -345,14 +346,14 @@ function Contacto() {
                   value={form.empresa}
                   onChange={handleChange}
                   className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="Nombre de tu empresa"
+                  placeholder="Nome da sua empresa"
                 />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-gray-400 text-sm mb-1" htmlFor="email">
-                  Email
+                  E-mail
                 </label>
                 <input
                   id="email"
@@ -362,42 +363,42 @@ function Contacto() {
                   value={form.email}
                   onChange={handleChange}
                   className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="tu@empresa.com"
+                  placeholder="voce@empresa.com"
                 />
               </div>
               <div>
-                <label className="block text-gray-400 text-sm mb-1" htmlFor="telefono">
-                  Teléfono
+                <label className="block text-gray-400 text-sm mb-1" htmlFor="telefone">
+                  Telefone
                 </label>
                 <input
-                  id="telefono"
-                  name="telefono"
+                  id="telefone"
+                  name="telefone"
                   type="tel"
-                  value={form.telefono}
+                  value={form.telefone}
                   onChange={handleChange}
                   className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="+598 99 123 456"
+                  placeholder="+55 11 99999-9999"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-gray-400 text-sm mb-1" htmlFor="mensaje">
-                Mensaje
+              <label className="block text-gray-400 text-sm mb-1" htmlFor="mensagem">
+                Mensagem
               </label>
               <textarea
-                id="mensaje"
-                name="mensaje"
+                id="mensagem"
+                name="mensagem"
                 rows={4}
                 required
-                value={form.mensaje}
+                value={form.mensagem}
                 onChange={handleChange}
                 className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                placeholder="Contanos brevemente qué necesitás..."
+                placeholder="Conte brevemente o que você precisa..."
               />
             </div>
             {error && (
               <p className="text-red-400 text-sm text-center">
-                Hubo un error al enviar. Intentá de nuevo.
+                Ocorreu um erro ao enviar. Tente novamente.
               </p>
             )}
             <button
@@ -405,7 +406,7 @@ function Contacto() {
               disabled={loading}
               className="bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-semibold py-3 rounded-lg transition-colors mt-2"
             >
-              {loading ? "Enviando..." : "Enviar mensaje"}
+              {loading ? "Enviando..." : "Enviar mensagem"}
             </button>
           </form>
         )}
@@ -419,7 +420,7 @@ function Footer() {
   return (
     <footer className="bg-zinc-950 border-t border-zinc-800 py-8 px-6 text-center">
       <p className="text-gray-500 text-sm">
-        © {new Date().getFullYear()} HarbSec — Protegemos tu mundo digital
+        © {new Date().getFullYear()} HarbSec — Protegemos o seu mundo digital
       </p>
     </footer>
   );
@@ -432,9 +433,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Servicios />
-        <Nosotros />
-        <Contacto />
+        <Servicos />
+        <SobreNos />
+        <Contato />
       </main>
       <Footer />
     </>
