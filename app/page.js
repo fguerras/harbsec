@@ -32,6 +32,14 @@ function Navbar() {
             </a>
           ))}
           <a
+            href="/pt"
+            className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors border border-gray-200 hover:border-blue-400 px-3 py-1.5 rounded-lg"
+            title="Ver en Portugués"
+          >
+            <span>🇧🇷</span>
+            <span>PT</span>
+          </a>
+          <a
             href="#contacto"
             className="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded transition-colors"
           >
@@ -68,6 +76,13 @@ function Navbar() {
               {l}
             </a>
           ))}
+          <a
+            href="/pt"
+            className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors"
+          >
+            <span>🇧🇷</span>
+            <span>Ver em Português</span>
+          </a>
           <a
             href="#contacto"
             onClick={() => setOpen(false)}
