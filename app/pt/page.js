@@ -147,10 +147,12 @@ const SERVICOS = [
   },
   {
     title: "Hardening",
+    href: "/pt/servicos/hardening",
     desc: "Windows Server, Linux, Active Directory, firewalls, servidores web e bancos de dados configurados para reduzir a superfície de ataque.",
   },
   {
     title: "Proteção empresarial",
+    href: "/pt/servicos/protecao-empresarial",
     desc: "Gestão de antivírus/EDR, firewall, VPN, segmentação de rede e MFA para proteger o dia a dia da sua organização.",
   },
   {
@@ -165,14 +167,17 @@ const SERVICOS = [
   },
   {
     title: "Treinamento",
+    href: "/pt/servicos/treinamento",
     desc: "Conscientização para usuários, boas práticas e simulações de phishing para reduzir o risco humano.",
   },
   {
     title: "Consultoria",
+    href: "/pt/servicos/consultoria",
     desc: "Design de arquiteturas seguras, políticas de segurança, continuidade de negócios e planos de recuperação.",
   },
   {
     title: "Forense digital",
+    href: "/pt/servicos/forense-digital",
     desc: "Análise forense de equipamentos e sistemas, coleta e preservação de evidências digitais, suporte técnico a investigações criminais e organismos de segurança pública.",
   },
 ];

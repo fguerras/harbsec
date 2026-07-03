@@ -9,6 +9,11 @@ const routes = [
   ["/servicios/gestion-de-vulnerabilidades", "/pt/servicos/gestao-de-vulnerabilidades"],
   ["/servicios/monitoreo", "/pt/servicos/monitoramento"],
   ["/servicios/respuesta-a-incidentes", "/pt/servicos/resposta-a-incidentes"],
+  ["/servicios/hardening", "/pt/servicos/hardening"],
+  ["/servicios/proteccion-empresarial", "/pt/servicos/protecao-empresarial"],
+  ["/servicios/capacitacion", "/pt/servicos/treinamento"],
+  ["/servicios/consultoria", "/pt/servicos/consultoria"],
+  ["/servicios/forense-digital", "/pt/servicos/forense-digital"],
 ];
 
 export default function sitemap() {
