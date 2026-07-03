@@ -165,11 +165,6 @@ const SERVICIOS = [
     desc: "Investigación, contención, recuperación e informe técnico cuando algo sale mal.",
   },
   {
-    title: "Capacitación",
-    href: "/servicios/capacitacion",
-    desc: "Concientización para usuarios, buenas prácticas y simulaciones de phishing para reducir el riesgo humano.",
-  },
-  {
     title: "Consultoría",
     href: "/servicios/consultoria",
     desc: "Diseño de arquitecturas seguras, políticas de seguridad, continuidad del negocio y planes de recuperación.",
