@@ -451,6 +451,11 @@ function Footer() {
       <p className="text-gray-500 text-sm">
         © {new Date().getFullYear()} HarbSec — Protegemos tu mundo digital
       </p>
+      <p className="mt-2">
+        <a href="/politica-privacidad.html" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+          Política de privacidad
+        </a>
+      </p>
     </footer>
   );
 }
